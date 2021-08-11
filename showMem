@@ -1,0 +1,17 @@
+<?php
+
+include("db_connect.php");
+$verify_id=$_GET['payslip'];
+
+// Get images from the database
+$query = $db->query("SELECT file_name FROM images where id='$verify_id' ");
+
+if ($query->num_rows > 0){
+    while($row = $query->fetch_assoc()){
+        $imageURL = 'payment_upload/'.$row["file_name"];
+?>
+    <!-- <img src="<?php // ?>" alt="" />
+<?php }
+// }else{ ?>
+    <p>No image(s) found...</p>
+<?php } ?> -->
